@@ -1,0 +1,53 @@
+import React from 'react'
+import App from 'next/app'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+
+import '../components/styles/nprogress.css'
+
+import AddToHomeScreenContext from '../components/AddToHomescreen'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
+
+export default class MyApp extends App {
+  constructor(props) {
+    super(props)
+    this.state = {
+      deferredPrompt: null
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('beforeinstallprompt', (event) => {
+      console.log('👍', 'beforeinstallprompt')
+      // Stash the event so it can be triggered later.
+      this.setState({
+        deferredPrompt: event
+      })
+    })
+  }
+
+  changeToNull = (data) => {
+    this.setState({
+      deferredPrompt: data
+    })
+  }
+  render() {
+    const { Component, pageProps } = this.props
+
+    return (
+      <>
+        <AddToHomeScreenContext.Provider
+          value={{
+            deferredPrompt: this.state.deferredPrompt,
+            changeToNull: this.changeToNull
+          }}
+        >
+          <Component {...pageProps} />
+        </AddToHomeScreenContext.Provider>
+      </>
+    )
+  }
+}
