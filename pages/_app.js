@@ -2,8 +2,10 @@ import React from 'react'
 import App from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import { ThemeProvider } from 'styled-components'
 
 import '../components/styles/nprogress.css'
+import { theme } from '../components/theme/Main'
 
 import AddToHomeScreenContext from '../components/AddToHomescreen'
 
@@ -34,11 +36,12 @@ export default class MyApp extends App {
       deferredPrompt: data
     })
   }
+
   render() {
     const { Component, pageProps } = this.props
 
     return (
-      <>
+      <ThemeProvider theme={theme}>
         <AddToHomeScreenContext.Provider
           value={{
             deferredPrompt: this.state.deferredPrompt,
@@ -47,7 +50,7 @@ export default class MyApp extends App {
         >
           <Component {...pageProps} />
         </AddToHomeScreenContext.Provider>
-      </>
+      </ThemeProvider>
     )
   }
 }
