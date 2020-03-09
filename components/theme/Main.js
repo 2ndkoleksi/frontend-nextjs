@@ -6,5 +6,9 @@ export const theme = {
       white: '#fff',
       black: '#000'
     }
+  },
+  mobile: '576px',
+  hoverColors: {
+    primary: '#343078'
   }
-}
+};

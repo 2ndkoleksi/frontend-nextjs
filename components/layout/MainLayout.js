@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import styled from 'styled-components'
 
 import { Container, Main, Footer } from '../styles/Main'
-import Navigation from '../Navigation'
+import Navigation from '../Navbar'
 
 function MainLayout({ children, title = '2ndkoleksi' }) {
   return (

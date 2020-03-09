@@ -1,52 +1,51 @@
-import { useContext } from 'react'
-import styled from 'styled-components'
+import { useContext } from 'react';
+import styled from 'styled-components';
 
-import MainLayout from '../components/layout/MainLayout'
-import AddToHomeScreenContext from '../components/AddToHomescreen'
-import { LogoText, FlexWrapper, CenterText } from '../components/styles/Main'
+import MainLayout from '../components/layout/MainLayout';
+import AddToHomeScreenContext from '../components/AddToHomescreen';
+import { LogoText, FlexWrapper, CenterText } from '../components/styles/Main';
 
 const BackgroundFull = styled.div`
-  & img {
-    width: 100%;
-  }
-`
+  background: url(/images/logo/2ndkoleksi-634.png) no-repeat center center
+    scroll;
+  background-size: contain;
+  height: calc(100vh - 84px);
+`;
 
 const TextDescription = styled.div`
   text-transform: uppercase;
   font-weight: 700;
-`
+`;
 
 const Home = () => {
-  const { deferredPrompt, changeToNull } = useContext(AddToHomeScreenContext)
+  const { deferredPrompt, changeToNull } = useContext(AddToHomeScreenContext);
 
   const openAddToHomeScreen = () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt()
+      deferredPrompt.prompt();
 
       deferredPrompt.userChoice.then(function(choiceResult) {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt')
+          console.log('User accepted the install prompt');
         } else {
-          console.log('User dismissed the install prompt')
+          console.log('User dismissed the install prompt');
         }
-      })
+      });
 
-      changeToNull(null)
+      changeToNull(null);
     }
-  }
+  };
 
   React.useEffect(() => {
     window.addEventListener('appinstalled', () => {
-      console.log('👍', 'app installed')
-      window.alert('App installed ! Please check your home screen now!')
-    })
-  }, [deferredPrompt])
+      console.log('👍', 'app installed');
+      window.alert('App installed ! Please check your home screen now!');
+    });
+  }, [deferredPrompt]);
 
   return (
     <MainLayout>
-      <BackgroundFull>
-        <img src='/images/header-image.png' />
-      </BackgroundFull>
+      <BackgroundFull />
 
       <CenterText>
         <h3>
@@ -76,7 +75,7 @@ const Home = () => {
         </FlexWrapper>
       </CenterText>
     </MainLayout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
