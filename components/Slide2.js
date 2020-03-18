@@ -15,11 +15,12 @@ const Slide2Wrapper = styled(Container)`
   }
 
   & div {
-    width: inherit;
+    width: 200px;
+    margin: 0 auto;
 
     & img {
       width: 100%;
-    }
+    }'
   }
 `;
 

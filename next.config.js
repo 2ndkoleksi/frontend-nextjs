@@ -1,11 +1,12 @@
-const withPlugins = require('next-compose-plugins')
-const withOffline = require('next-offline')
-const withImages = require('next-images')
+const withPlugins = require('next-compose-plugins');
+const withOffline = require('next-offline');
+const withImages = require('next-images');
+const withFonts = require('next-fonts');
+
 
 const nextConfig = {
-  useFileSystemPublicRoutes: false,
-  distDir: 'build'
-}
+  useFileSystemPublicRoutes: false
+};
 
 const offlineConfig = {
   target: 'serverless',
@@ -57,6 +58,6 @@ const offlineConfig = {
 };
 
 module.exports = withPlugins(
-  [withImages, [withOffline, offlineConfig]],
+  [withImages, withFonts, [withOffline, offlineConfig]],
   nextConfig
-)
+);

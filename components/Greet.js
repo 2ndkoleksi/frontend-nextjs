@@ -13,7 +13,7 @@ const AnimatedDiv = styled(animated.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5em;
+  font-size: 3em;
   font-weight: 800;
   text-transform: uppercase;
   will-change: transform, opacity, height;
