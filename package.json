@@ -6,7 +6,10 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "next start",
-    "export": "cross-env NEXT_EXPORT=true next build && cross-env NEXT_EXPORT=true next export && cross-env NODE_ENV=production node server.js"
+    "export": "cross-env NEXT_EXPORT=true next build && cross-env NEXT_EXPORT=true next export && cross-env NODE_ENV=production node server.js",
+    "build-docker": "docker build -t 2ndkoleksi .",
+    "build-docker-multistage": "docker build -t next-app -f ./Dockerfile.multistage .",
+    "run-docker": "docker run --rm -it -p 3002:3000 2ndkoleksi"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -19,7 +22,8 @@
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-focus-lock": "2.2.1",
-    "react-spring": "^8.0.27",
+    "react-page-scroller": "2.0.6-beta",
+    "react-spring": "8.0.27",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

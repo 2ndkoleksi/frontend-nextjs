@@ -1,19 +1,21 @@
-import Link from 'next/link'
-import styled from 'styled-components'
+import { useState } from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import Burger from './Burger'
-import Menu from './Menu'
+import { useScreenSize } from '../../hooks/useScreenSize';
+import Burger from './Burger';
+import Menu from './Menu';
 
 const link = [
   { link: '/about', label: 'about us' },
   { link: '/product', label: 'product' },
   { link: '/contact', label: 'contact' }
-]
+];
 
 const NavigationWrapper = styled.div`
   width: 100%;
   min-height: 84px;
-`
+`;
 
 const NavLinks = styled.ul`
   list-style-type: none;
@@ -45,32 +47,14 @@ const NavLinks = styled.ul`
     transition: 0.5s;
     text-transform: uppercase;
   }
-`
+`;
 
-const BurgerWrapper = styled.div``
+const BurgerWrapper = styled.div``;
 
 function Navigation() {
-  const [open, setOpen] = React.useState(false)
-  const menuId = 'main-menu'
-  const [isSmallScreen, setIsSmallScreen] = React.useState(false)
-
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)')
-    mediaQuery.addListener(handleMediaQueryChange)
-    handleMediaQueryChange(mediaQuery)
-
-    return () => {
-      mediaQuery.removeListener(handleMediaQueryChange)
-    }
-  }, [])
-
-  const handleMediaQueryChange = (mediaQuery) => {
-    if (mediaQuery.matches) {
-      setIsSmallScreen(true)
-    } else {
-      setIsSmallScreen(false)
-    }
-  }
+  const [open, setOpen] = useState(false);
+  const menuId = 'main-menu';
+  const [isSmallScreen] = useScreenSize();
 
   return (
     <NavigationWrapper>
@@ -91,7 +75,7 @@ function Navigation() {
         </NavLinks>
       )}
     </NavigationWrapper>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

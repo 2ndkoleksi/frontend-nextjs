@@ -1,11 +1,55 @@
-import Greet from '../components/Greet'
+// import { useContext, useEffect } from 'react';
+import styled from 'styled-components';
+import ReactPageScroller from 'react-page-scroller';
 
-function Home() {
+import { useScreenSize } from '../hooks/useScreenSize';
+import MainLayout from '../components/layout/MainLayout';
+import Greet from '../components/Greet';
+import Slide2 from '../components/Slide2';
+// import AddToHomeScreenContext from '../context/AddToHomescreen';
+
+const BackgroundFull = styled.div`
+  background: url(/images/logo/2ndkoleksi-634.png) no-repeat center center
+    scroll;
+  background-size: contain;
+  height: calc(100vh - 84px);
+`;
+
+const Home = () => {
+  // const { deferredPrompt, changeToNull } = useContext(AddToHomeScreenContext);
+  const [isSmallScreen] = useScreenSize();
+
+  // const openAddToHomeScreen = () => {
+  //   if (deferredPrompt) {
+  //     deferredPrompt.prompt();
+
+  //     deferredPrompt.userChoice.then(function(choiceResult) {
+  //       if (choiceResult.outcome === 'accepted') {
+  //         console.log('User accepted the install prompt');
+  //       } else {
+  //         console.log('User dismissed the install prompt');
+  //       }
+  //     });
+
+  //     changeToNull(null);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('appinstalled', () => {
+  //     console.log('👍', 'app installed');
+  //     window.alert('App installed ! Please check your home screen now!');
+  //   });
+  // }, [deferredPrompt]);
+
   return (
-    <React.Fragment>
-      <Greet />
-    </React.Fragment>
-  )
-}
+    <MainLayout>
+      <ReactPageScroller>
+        <Greet />
+        <Slide2 />
+      </ReactPageScroller>
+    </MainLayout>
+  );
+};
 
-export default Home
+export default Home;

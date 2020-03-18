@@ -8,7 +8,7 @@ import { Global } from '../components/styles/GlobalStyle'
 import '../components/styles/nprogress.css'
 import { theme } from '../components/theme/Main'
 
-import AddToHomeScreenContext from '../components/AddToHomescreen'
+import AddToHomeScreenContext from '../context/AddToHomescreen'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())

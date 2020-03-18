@@ -1,0 +1,25 @@
+# Do the npm install or yarn install in the full image
+FROM mhart/alpine-node AS builder
+
+RUN mkdir -p /project/app/2ndkoleksi-nextjs
+WORKDIR /project/app/2ndkoleksi-nextjs
+
+COPY package.json .
+RUN yarn install
+COPY . .
+
+RUN yarn build && yarn --production
+
+# And then copy over node_modules, etc from that stage to the smaller base image
+FROM mhart/alpine-node:base
+
+WORKDIR /project/app/2ndkoleksi-nextjs
+WORKDIR /project/app/2ndkoleksi-nextjs
+
+COPY --from=builder /project/app/2ndkoleksi-nextjs/node_modules ./node_modules
+COPY --from=builder /project/app/2ndkoleksi-nextjs/.next ./.next
+COPY --from=builder /project/app/2ndkoleksi-nextjs/next.config.js ./next.config.js
+
+EXPOSE 3002
+
+CMD ["node_modules/.bin/next", "start"]

@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 
-export const FlexWrapper = styled.div`
+export const CenterFlex = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 `;
 
-export const Container = styled(FlexWrapper)`
-  min-height: 100vh;
-  flex-direction: column;
+export const Container = styled.div`
+  height: 100%;
 `;
 
 export const Main = styled.main`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  width: 100%;
+  height: inherit;
 `;
 
 export const Footer = styled.footer`
