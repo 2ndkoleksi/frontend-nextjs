@@ -1,81 +1,11 @@
-import { useContext } from 'react';
-import styled from 'styled-components';
+import Greet from '../components/Greet'
 
-import MainLayout from '../components/layout/MainLayout';
-import AddToHomeScreenContext from '../components/AddToHomescreen';
-import { LogoText, FlexWrapper, CenterText } from '../components/styles/Main';
-
-const BackgroundFull = styled.div`
-  background: url(/images/logo/2ndkoleksi-634.png) no-repeat center center
-    scroll;
-  background-size: contain;
-  height: calc(100vh - 84px);
-`;
-
-const TextDescription = styled.div`
-  text-transform: uppercase;
-  font-weight: 700;
-`;
-
-const Home = () => {
-  const { deferredPrompt, changeToNull } = useContext(AddToHomeScreenContext);
-
-  const openAddToHomeScreen = () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-
-      deferredPrompt.userChoice.then(function(choiceResult) {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
-        } else {
-          console.log('User dismissed the install prompt');
-        }
-      });
-
-      changeToNull(null);
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener('appinstalled', () => {
-      console.log('👍', 'app installed');
-      window.alert('App installed ! Please check your home screen now!');
-    });
-  }, [deferredPrompt]);
-
+function Home() {
   return (
-    <MainLayout>
-      <BackgroundFull />
+    <React.Fragment>
+      <Greet />
+    </React.Fragment>
+  )
+}
 
-      <CenterText>
-        <h3>
-          Why shop at <LogoText>2ndkoleksi</LogoText>?
-        </h3>
-
-        <FlexWrapper>
-          <div>
-            <img
-              src='images/svg/check.svg'
-              alt='checked'
-              rel='noopener noreferrer'
-            />
-            <TextDescription>100% money back guarantee</TextDescription>
-          </div>
-
-          <div>
-            <img
-              src='images/svg/check.svg'
-              alt='checked'
-              rel='noopener noreferrer'
-            />
-            <TextDescription>
-              we double-check the authenticity before we ship
-            </TextDescription>
-          </div>
-        </FlexWrapper>
-      </CenterText>
-    </MainLayout>
-  );
-};
-
-export default Home;
+export default Home

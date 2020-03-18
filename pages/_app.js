@@ -4,6 +4,7 @@ import Router from 'next/router'
 import NProgress from 'nprogress'
 import { ThemeProvider } from 'styled-components'
 
+import { Global } from '../components/styles/GlobalStyle'
 import '../components/styles/nprogress.css'
 import { theme } from '../components/theme/Main'
 
@@ -41,16 +42,19 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <ThemeProvider theme={theme}>
-        <AddToHomeScreenContext.Provider
-          value={{
-            deferredPrompt: this.state.deferredPrompt,
-            changeToNull: this.changeToNull
-          }}
-        >
-          <Component {...pageProps} />
-        </AddToHomeScreenContext.Provider>
-      </ThemeProvider>
+      <>
+        <Global />
+        <ThemeProvider theme={theme}>
+          <AddToHomeScreenContext.Provider
+            value={{
+              deferredPrompt: this.state.deferredPrompt,
+              changeToNull: this.changeToNull
+            }}
+          >
+            <Component {...pageProps} />
+          </AddToHomeScreenContext.Provider>
+        </ThemeProvider>
+      </>
     )
   }
 }

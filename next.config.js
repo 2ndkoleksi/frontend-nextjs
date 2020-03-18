@@ -1,6 +1,13 @@
+const withPlugins = require('next-compose-plugins')
 const withOffline = require('next-offline')
+const withImages = require('next-images')
 
 const nextConfig = {
+  useFileSystemPublicRoutes: false,
+  distDir: 'build'
+}
+
+const offlineConfig = {
   target: 'serverless',
   transformManifest: (manifest) => ['/'].concat(manifest), // add the homepage to the cache
   // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
@@ -41,4 +48,7 @@ const nextConfig = {
   }
 }
 
-module.exports = withOffline(nextConfig)
+module.exports = withPlugins(
+  [withImages, [withOffline, offlineConfig]],
+  nextConfig
+)
