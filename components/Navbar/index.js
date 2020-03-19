@@ -1,30 +1,33 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { useState } from 'react'
+import Link from 'next/link'
+import styled from 'styled-components'
 
-import { useScreenSize } from '../../hooks/useScreenSize';
-import Burger from './Burger';
-import Menu from './Menu';
+import { useScreenSize } from '../../hooks/useScreenSize'
+import Burger from './Burger'
+import Menu from './Menu'
 
 const link = [
   { link: '/about', label: 'about us' },
   { link: '/product', label: 'product' },
   { link: '/contact', label: 'contact' }
-];
+]
 
 const NavigationWrapper = styled.div`
   width: 100%;
-  min-height: 84px;
-`;
+  min-height: 4rem;
+  position: fixed;
+`
 
 const NavLinks = styled.ul`
   list-style-type: none;
   padding: 0;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 100px);
   align-items: center;
   justify-items: center;
   justify-content: end;
+  height: 4rem;
 
   & li {
     &:after {
@@ -47,14 +50,14 @@ const NavLinks = styled.ul`
     transition: 0.5s;
     text-transform: uppercase;
   }
-`;
+`
 
-const BurgerWrapper = styled.div``;
+const BurgerWrapper = styled.div``
 
 function Navigation() {
-  const [open, setOpen] = useState(false);
-  const menuId = 'main-menu';
-  const [isSmallScreen] = useScreenSize();
+  const [open, setOpen] = useState(false)
+  const menuId = 'main-menu'
+  const [isSmallScreen] = useScreenSize()
 
   return (
     <NavigationWrapper>
@@ -75,7 +78,7 @@ function Navigation() {
         </NavLinks>
       )}
     </NavigationWrapper>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation

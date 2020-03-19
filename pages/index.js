@@ -1,11 +1,10 @@
 // import { useContext, useEffect } from 'react';
-import styled from 'styled-components';
-import ReactPageScroller from 'react-page-scroller';
+import styled from 'styled-components'
 
-import { useScreenSize } from '../hooks/useScreenSize';
-import MainLayout from '../components/layout/MainLayout';
-import Greet from '../components/Greet';
-import Slide2 from '../components/Slide2';
+import { useScreenSize } from '../hooks/useScreenSize'
+import MainLayout from '../components/layout/MainLayout'
+import Greet from '../components/Greet'
+import Slide2 from '../components/Slide2'
 // import AddToHomeScreenContext from '../context/AddToHomescreen';
 
 const BackgroundFull = styled.div`
@@ -13,11 +12,11 @@ const BackgroundFull = styled.div`
     scroll;
   background-size: contain;
   height: calc(100vh - 84px);
-`;
+`
 
 const Home = () => {
   // const { deferredPrompt, changeToNull } = useContext(AddToHomeScreenContext);
-  const [isSmallScreen] = useScreenSize();
+  const [isSmallScreen] = useScreenSize()
 
   // const openAddToHomeScreen = () => {
   //   if (deferredPrompt) {
@@ -44,12 +43,9 @@ const Home = () => {
 
   return (
     <MainLayout>
-      <ReactPageScroller>
-        <Greet />
-        <Slide2 />
-      </ReactPageScroller>
+      <Greet />
     </MainLayout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

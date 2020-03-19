@@ -10,11 +10,11 @@ function MainLayout({ children, title = '2ndkoleksi' }) {
         <title>{title}</title>
       </Head>
 
-      {/* <Navigation /> */}
+      <Navigation />
 
       <Main>{children}</Main>
 
-      {/* <Footer>2ndkoleksi, 2014 - {new Date().getFullYear()}</Footer> */}
+      <Footer>2ndkoleksi, 2014 - {new Date().getFullYear()}</Footer>
     </Container>
   )
 }

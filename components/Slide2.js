@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Container } from './styles/Main';
 
 const Slide2Wrapper = styled(Container)`
-  background-color: #add8e6;
-  background-image: linear-gradient(180deg, #add8e6 55%, #e295d3 100%);
+
   padding: 4rem;
   text-align: center;
   line-height: 1.5;
   letter-spacing: 1px;
+  height: inherit;
 
   & p {
     margin-top: 0;
