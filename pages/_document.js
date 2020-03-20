@@ -82,6 +82,7 @@ class MyDocument extends Document {
           <meta name='layoutmode' content='fitscreen/standard' />
 
           <meta name='imagemode' content='force' />
+          <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />
@@ -89,10 +90,11 @@ class MyDocument extends Document {
 
           <style jsx global>
             {`
-              @font-face {
-                font-family: 'Dosis';
-                src: url('/fonts/Dosis-VariableFont_wght.ttf');
-              }
+              // @font-face {
+              //   font-family: 'Dosis';
+              //   src: url('/fonts/Dosis-VariableFont_wght.ttf');
+              // }
+
               html {
                 height: 100%;
               }
@@ -100,7 +102,7 @@ class MyDocument extends Document {
               body {
                 font-family: 'Dosis', sans-serif;
                 margin: 0;
-                height: 100vh;
+                height: 100%;
                 text-rendering: optimizeLegibility;
               }
 

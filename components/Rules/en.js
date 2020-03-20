@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { consignedRules, unconsignedRules } from '../../data/rules'
+import { consignedRulesEn, unconsignedRulesEn } from '../../data/rules'
 import CardRules from '../styles/CardRules'
 
 const Wrapper = styled.div`
@@ -26,20 +26,20 @@ const RulesContent = styled.div`
 function InaRules() {
   return (
     <Wrapper>
-      <h1>ATURAN PENGIRIMAN</h1>
+      <h1>CONSIGNMENT RULES</h1>
       <div>
-        <h2>Titip Barang Tidak Langsung Di Kita</h2>
+        <h2>Stuffs Are Not Keep In Us</h2>
         <RulesContent>
-          {unconsignedRules.map((data, index) => (
+          {unconsignedRulesEn.map((data, index) => (
             <CardRules content={data} id={index + 1} key={index} />
           ))}
         </RulesContent>
       </div>
 
       <div>
-        <h2>Titip Barang Langsung Di Kita</h2>
+        <h2>Stuffs Are Keep In Us</h2>
         <RulesContent>
-          {consignedRules.map((data, index) => (
+          {consignedRulesEn.map((data, index) => (
             <CardRules content={data} id={index + 1} key={index} />
           ))}
         </RulesContent>

@@ -11,11 +11,12 @@ const contentFadeIn = keyframes`
   100% { transform: translateY(0); opacity: 1; }
 `
 
-const imageFadeIn = keyframes`
-  0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
-  50% { opacity: 1; filter: blur(2px); }
-  100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
-`
+// const imageFadeIn = keyframes`
+//   0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
+//   50% { opacity: 1; filter: blur(2px); }
+//   100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
+// `
+
 const Container = styled.div`
   height: 400px;
 `
@@ -27,7 +28,7 @@ const Card = styled.div`
   padding: 2rem;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
-
+  background: #fff;
   & .card__image-container {
     margin: -2rem -2rem 1rem -2rem;
 
@@ -41,10 +42,10 @@ const Card = styled.div`
     animation: ${lineFadeIn} 0.8s 0.8s forwards ease-in;
   }
 
-  & .card__image {
-    opacity: 0;
-    animation: ${imageFadeIn} 0.8s 1.4s forwards;
-  }
+  // & .card__image {
+  //   opacity: 0;
+  //   animation: ${imageFadeIn} 0.8s 1.4s forwards;
+  // }
 
   & .card__title {
     color: ${({ theme }) => theme.colors.primary.black}
@@ -54,15 +55,15 @@ const Card = styled.div`
   }
 
   & .card__content {
-    margin-top: -1rem;
+    margin-top: 4rem;
     opacity: 0;
     animation: ${contentFadeIn} 0.8s 1.6s forwards;
   }
 
   & .card__svg {
-    // position: absolute;
-    // left: 0;
-    // top: 95px;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 `
 
@@ -82,13 +83,13 @@ function CardRules({ content, id }) {
           <path
             d='M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500'
             stroke='transparent'
-            fill='#fff'
+            fill='white'
           />
           <path
-            className='card__line'
+            class='card__line'
             d='M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400'
-            stroke='white'
-            strokeWidth='3'
+            stroke='pink'
+            strokeWidth='5'
             fill='transparent'
           />
         </svg>
