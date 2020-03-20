@@ -14,6 +14,7 @@ const StyledMenu = styled.nav`
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
@@ -43,10 +44,10 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <Link href='/about'>
+      <Link href='/rules'>
         <a tabIndex={tabIndex}>
           <span aria-hidden='true'>💁🏻‍♂️</span>
-          About us
+          Rules
         </a>
       </Link>
       <Link href='/product'>

@@ -8,10 +8,9 @@ import Slide2 from '../components/Slide2'
 // import AddToHomeScreenContext from '../context/AddToHomescreen';
 
 const BackgroundFull = styled.div`
-  background: url(/images/logo/2ndkoleksi-634.png) no-repeat center center
-    scroll;
-  background-size: contain;
-  height: calc(100vh - 84px);
+  background-color: #add8e6;
+  background-image: linear-gradient(180deg, #add8e6 55%, #e295d3 100%);
+  height: inherit;
 `
 
 const Home = () => {
@@ -43,7 +42,9 @@ const Home = () => {
 
   return (
     <MainLayout>
-      <Greet />
+      <BackgroundFull>
+        <Greet />
+      </BackgroundFull>
     </MainLayout>
   )
 }

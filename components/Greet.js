@@ -2,12 +2,12 @@ import { useRef, useState, useEffect, useCallback } from 'react'
 import { useTransition, animated } from 'react-spring'
 import styled from 'styled-components'
 
-import DownArrow from '../public/images/svg/down-arrow.svg'
 import Slide2 from './Slide2'
 
 const AnimatedWrapper = styled.div`
   height: 250px;
   max-height: 250px;
+  z-index: 0;
 `
 
 const AnimatedDiv = styled(animated.div)`
@@ -81,10 +81,7 @@ function Greet() {
           </AnimatedDiv>
         ))}
       </AnimatedWrapper>
-      <div>
-        <Slide2 />
-      </div>
-
+      <Slide2 />
     </HomeSection>
   )
 }

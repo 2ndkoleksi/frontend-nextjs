@@ -12,8 +12,6 @@ export const Container = styled.div`
 `
 
 export const Main = styled.main`
-  background-color: #add8e6;
-  background-image: linear-gradient(180deg, #add8e6 55%, #e295d3 100%);
   height: inherit;
 `
 

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { Container } from './styles/Main';
 
 const Slide2Wrapper = styled(Container)`
-
-  padding: 4rem;
+  padding: 2rem 1rem;
   text-align: center;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -20,7 +19,7 @@ const Slide2Wrapper = styled(Container)`
 
     & img {
       width: 100%;
-    }'
+    }
   }
 `;
 

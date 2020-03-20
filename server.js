@@ -25,8 +25,11 @@ app
     const server = express()
 
     server.get('/', (req, res) => renderAndCache(req, res, '/', {}))
+    server.get('/rules', (req, res) => {
+      return app.render(req, res, '/rules', {})
+    })
 
-    server.get('*', (req, res) => handle(req, res))
+    server.all('*', (req, res) => handle(req, res))
 
     server.listen(port, (err) => {
       if (err) throw err

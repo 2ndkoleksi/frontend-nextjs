@@ -7,15 +7,16 @@ import Burger from './Burger'
 import Menu from './Menu'
 
 const link = [
-  { link: '/about', label: 'about us' },
+  { link: '/rules', label: 'rules' },
   { link: '/product', label: 'product' },
   { link: '/contact', label: 'contact' }
 ]
 
 const NavigationWrapper = styled.div`
+  position: fixed;
   width: 100%;
   min-height: 4rem;
-  position: fixed;
+  z-index: 10;
 `
 
 const NavLinks = styled.ul`
