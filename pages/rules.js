@@ -4,9 +4,7 @@ import InaRules from '../components/Rules/Ina'
 function Rules() {
   return (
     <MainLayout>
-      {/* <Container> */}
       <InaRules />
-      {/* </Container> */}
     </MainLayout>
   )
 }

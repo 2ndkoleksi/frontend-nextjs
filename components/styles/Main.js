@@ -11,9 +11,7 @@ export const Container = styled.div`
   height: 100%;
 `
 
-export const Main = styled.main`
-  height: inherit;
-`
+export const Main = styled.main``
 
 export const Footer = styled.footer`
   width: 100%;

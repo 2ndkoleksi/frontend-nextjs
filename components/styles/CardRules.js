@@ -17,21 +17,14 @@ const imageFadeIn = keyframes`
   100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
 `
 const Container = styled.div`
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  // grid-gap: 1rem;
-  height: 510px;
-  // background: ${({ theme }) => theme.colors.primary.white};
+  height: 400px;
 `
 
 const Card = styled.div`
   position: relative;
-  // background: ${({ theme }) => theme.colors.primary.white};
-  // width: 400px;
   height: 100%;
   border-radius: 6px;
   padding: 2rem;
-  // color: #aaa;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
 
@@ -67,9 +60,9 @@ const Card = styled.div`
   }
 
   & .card__svg {
-    position: absolute;
-    left: 0;
-    top: 95px;
+    // position: absolute;
+    // left: 0;
+    // top: 95px;
   }
 `
 
@@ -77,13 +70,13 @@ function CardRules({ content, id }) {
   return (
     <Container>
       <Card>
-        <div className='card__image-container'>
+        {/* <div className='card__image-container'>
           <img
             className='card__image'
             src='https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2126&q=80'
             alt=''
           />
-        </div>
+        </div> */}
 
         <svg className='card__svg' viewBox='0 0 800 500'>
           <path
