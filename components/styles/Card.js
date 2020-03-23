@@ -154,8 +154,8 @@ const Card = ({ content }) => {
 
           <Button>
             <a href='#'>$115</a>
-            <a class='cart-btn' href='#'>
-              <i class='cart-icon ion-bag'></i>Contact Me For Details
+            <a className='cart-btn' href='#'>
+              <i className='cart-icon ion-bag'></i>Contact Me For Details
             </a>
           </Button>
         </Content>

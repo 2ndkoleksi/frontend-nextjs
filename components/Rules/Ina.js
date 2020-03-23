@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from 'styled-components'
+import Link from 'next/link'
 
-import { consignedRules, unconsignedRules } from '../../data/rules';
-// import CardRules from '../styles/Card';
+import { consignedRules, unconsignedRules } from '../../data/rules'
 import ListWrapper from '../styles/ListRules'
 
 const Wrapper = styled.div`
@@ -10,19 +9,9 @@ const Wrapper = styled.div`
     margin: 0;
     text-align: center;
   }
-  // background: url(/images/logo/watermark.png) no-repeat center center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: contain;
-`;
+`
 
-const RulesContent = styled.div`
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
-  // grid-gap: 1rem;
-  // padding: 2rem 1rem;
-`;
+const RulesContent = styled.div``
 
 const ImgWrapper = styled.div`
   position: fixed;
@@ -35,7 +24,7 @@ const ImgWrapper = styled.div`
   & img {
     max-width: 100%;
   }
-`;
+`
 
 function InaRules() {
   return (
@@ -69,7 +58,7 @@ function InaRules() {
         </Link>
       </ImgWrapper>
     </Wrapper>
-  );
+  )
 }
 
-export default InaRules;
+export default InaRules
