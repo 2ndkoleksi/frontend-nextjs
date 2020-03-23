@@ -1,106 +1,170 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
-const lineFadeIn = keyframes`
-  0% { opacity: 0; d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 "); stroke: #fff; }
-  50% { opacity: 1; d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"); stroke: #888BFF; }
-  100% { opacity: 1; d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400"); stroke: #545581; }
-`;
-
-const contentFadeIn = keyframes`
-  0% { transform: translateY(-1rem); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-`;
-
-const imageFadeIn = keyframes`
-  0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
-  50% { opacity: 1; filter: blur(2px); }
-  100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
+const fadeInLeft = keyframes`
+  0% {
+      opacity:0;
+      transform:translateX(-200px);
+    }
+  100% {
+      opacity:1;
+      transform:translateX(0);
+    }
 `
 
-const Container = styled.div`
-  height: 400px;
-`;
+const fadeInRight = keyframes`
+  0% {
+      opacity:0;
+      transform:translateX(200px);
+    }
+  100% {
+      opacity:1;
+      transform:translateX(0);
+    }
+`
 
-const CardWrapper = styled.div`
-  position: relative;
-  height: 100%;
-  border-radius: 6px;
-  padding: 2rem;
-  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
+const Wrapper = styled.div`
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 80%, #fff 100%);
+  color: ${({ theme }) => theme.colors.primary.white};
+`
+
+const Outer = styled.div`
+  // position: relative;
+  // height: 250px;
+  // width: 610px;
   overflow: hidden;
-  background: #fff;
-  & .card__image-container {
-    margin: -2rem -2rem 1rem -2rem;
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
 
-    & img {
-      max-width: 100%;
+const ImageWrapper = styled.span`
+  // width: 280px;
+  // position: absolute;
+  // top: 0px;
+  // right: 0;
+  z-index: 0;
+  animation: ${fadeInRight} 2s ease-in-out;
+  height: 280px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
+const Content = styled.div`
+  animation-delay: 0.3s;
+  // position: absolute;
+  // left: 20px;
+  z-index: 3;
+  animation: ${fadeInLeft} 2s ease-in-out;
+  height: 100%;
+  padding: 1rem;
+
+  & p {
+    width: 280px;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 20px 0;
+  }
+
+  & h1 {
+    text-align: left;
+  }
+`
+
+const Button = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+
+  & a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    font-size: 11px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #aaa;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary.white};
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -10px;
+      width: 0%;
+      background: #111;
+      height: 100%;
+      z-index: -1;
+      transition: width 0.3s ease-in-out;
+      transform: skew(-25deg);
+      transform-origin: right;
+    }
+
+    &:hover {
+      transition: all 0.5s ease;
+
+      &::after {
+        width: 150%;
+        left: -10px;
+        transform-origin: left;
+      }
     }
   }
 
-  & .card__line {
-    opacity: 0;
-    animation: ${lineFadeIn} 0.8s 0.8s forwards ease-in;
+  & a:nth-of-type(1) {
+    border-radius: 50px 0 0 50px;
+    border-right: none;
   }
 
-  & .card__image {
-    opacity: 0;
-    animation: ${imageFadeIn} 0.8s 1.4s forwards;
+  & a:nth-of-type(2) {
+    border-radius: 0px 50px 50px 0;
   }
+`
 
-  // & .card__title {
-  //   color: ${({ theme }) => theme.colors.primary.black}
-  //   margin-top: 0;
-  //   font-weight: 800;
-  //   letter-spacing: 0.01em;
-  // }
+const Label = styled.span`
+  display: inline-block;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 1em;
+  text-transform: uppercase;
+`
 
-  // & .card__content {
-  //   margin-top: 4rem;
-  //   opacity: 0;
-  //   animation: ${contentFadeIn} 0.8s 1.6s forwards;
-  // }
-
-  & .card__svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-`;
-
-function Card({ content, id }) {
+const Card = ({ content }) => {
   return (
-    <Container>
-      <CardWrapper>
-        <div className='card__image-container'>
-          <img
-            className='card__image'
-            src={content}
-            alt=''
-          />
-        </div>
+    <Wrapper>
+      <Outer>
+        <Content>
+          <Label>{content.label}</Label>
+          <h2>
+            Chanel
+            <br /> Patiti
+          </h2>
+          <p>
+            Shadow your real allegiance to New York's Pirate radio with this
+            cool cap featuring the Graphic Know Wave logo.
+          </p>
 
-        <svg className='card__svg' viewBox='0 0 800 500'>
-          <path
-            d='M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500'
-            stroke='transparent'
-            fill='white'
-          />
-          <path
-            className='card__line'
-            d='M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400'
-            stroke='pink'
-            strokeWidth='5'
-            fill='transparent'
-          />
-        </svg>
-
-        {/* <div className='card__content'>
-          <h1 className='card__title'>{id}</h1>
-          <p dangerouslySetInnerHTML={{ __html: content }} />
-        </div> */}
-      </CardWrapper>
-    </Container>
-  );
+          <Button>
+            <a href='#'>$115</a>
+            <a class='cart-btn' href='#'>
+              <i class='cart-icon ion-bag'></i>Contact Me For Details
+            </a>
+          </Button>
+        </Content>
+        <ImageWrapper>
+          <img src={content.imgSource} alt='product' />
+        </ImageWrapper>
+      </Outer>
+    </Wrapper>
+  )
 }
 
-export default Card;
+export default Card

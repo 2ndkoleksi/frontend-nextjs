@@ -7,11 +7,12 @@ export const CenterFlex = styled.div`
   flex-wrap: wrap;
 `
 
-export const Container = styled.div`
-  height: 100%;
-`
+export const Container = styled.div``
 
-export const Main = styled.main``
+export const Main = styled.main`
+  height: 100%;
+  padding: 5rem 2rem;
+`
 
 export const Footer = styled.footer`
   width: 100%;

@@ -14,7 +14,6 @@ RUN yarn build && yarn --production
 FROM mhart/alpine-node:base
 
 WORKDIR /project/app/2ndkoleksi-nextjs
-WORKDIR /project/app/2ndkoleksi-nextjs
 
 COPY --from=builder /project/app/2ndkoleksi-nextjs/node_modules ./node_modules
 COPY --from=builder /project/app/2ndkoleksi-nextjs/.next ./.next

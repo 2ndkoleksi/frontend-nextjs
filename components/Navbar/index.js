@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, createRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -15,7 +15,7 @@ const link = [
 const NavigationWrapper = styled.div`
   position: fixed;
   width: 100%;
-  min-height: 4rem;
+  max-height: 4rem;
   z-index: 10;
 `
 
@@ -29,6 +29,8 @@ const NavLinks = styled.ul`
   justify-items: center;
   justify-content: end;
   height: 4rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background: #fff;
 
   & li {
     &:after {

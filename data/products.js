@@ -1,6 +1,6 @@
 const imgSources = [
-  `/images/products/chanel-classic.jpg`,
-  `/images/products/chanel-paniti.jpg`
-];
+  { imgSource: `/images/products/chanel-classic.jpg`, label: 'chanel' },
+  { imgSource: `/images/products/chanel-paniti.jpg`, label: 'chanel' }
+]
 
-export { imgSources };
+export { imgSources }

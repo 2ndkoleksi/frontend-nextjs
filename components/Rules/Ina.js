@@ -6,7 +6,6 @@ import { consignedRules, unconsignedRules } from '../../data/rules';
 import ListWrapper from '../styles/ListRules'
 
 const Wrapper = styled.div`
-  padding: 4rem 2rem;
   & h1 {
     margin: 0;
     text-align: center;
