@@ -1,45 +1,47 @@
-import React from 'react'
-import App from 'next/app'
-import Router from 'next/router'
-import NProgress from 'nprogress'
-import { ThemeProvider } from 'styled-components'
+import React from 'react';
+import App from 'next/app';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import { ThemeProvider } from 'styled-components';
 
-import { Global } from '../components/styles/GlobalStyle'
-import '../components/styles/nprogress.css'
-import { theme } from '../components/theme/Main'
+import { Global } from '../components/styles/GlobalStyle';
+import '../components/styles/nprogress.css';
+import { theme } from '../components/theme/Main';
 
-import AddToHomeScreenContext from '../context/AddToHomescreen'
+import AddToHomeScreenContext from '../context/AddToHomescreen';
 
-Router.events.on('routeChangeStart', () => NProgress.start())
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
+NProgress.configure({ showSpinner: false });
+
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 export default class MyApp extends App {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       deferredPrompt: null
-    }
+    };
   }
 
   componentDidMount() {
     window.addEventListener('beforeinstallprompt', (event) => {
-      console.log('👍', 'beforeinstallprompt')
+      console.log('👍', 'beforeinstallprompt');
       // Stash the event so it can be triggered later.
       this.setState({
         deferredPrompt: event
-      })
-    })
+      });
+    });
   }
 
   changeToNull = (data) => {
     this.setState({
       deferredPrompt: data
-    })
-  }
+    });
+  };
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
 
     return (
       <>
@@ -49,12 +51,11 @@ export default class MyApp extends App {
             value={{
               deferredPrompt: this.state.deferredPrompt,
               changeToNull: this.changeToNull
-            }}
-          >
+            }}>
             <Component {...pageProps} />
           </AddToHomeScreenContext.Provider>
         </ThemeProvider>
       </>
-    )
+    );
   }
 }
