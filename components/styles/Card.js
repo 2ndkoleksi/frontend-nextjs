@@ -28,12 +28,8 @@ const Wrapper = styled.div`
 `
 
 const Outer = styled.div`
-  // position: relative;
-  // height: 250px;
-  // width: 610px;
   overflow: hidden;
   display: flex;
-  // align-items: center;
   justify-content: space-between;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -41,10 +37,6 @@ const Outer = styled.div`
 `
 
 const ImageWrapper = styled.span`
-  // width: 280px;
-  // position: absolute;
-  // top: 0px;
-  // right: 0;
   z-index: 0;
   animation: ${fadeInRight} 2s ease-in-out;
   height: 280px;
@@ -58,8 +50,6 @@ const ImageWrapper = styled.span`
 
 const Content = styled.div`
   animation-delay: 0.3s;
-  // position: absolute;
-  // left: 20px;
   z-index: 3;
   animation: ${fadeInLeft} 2s ease-in-out;
   height: 100%;

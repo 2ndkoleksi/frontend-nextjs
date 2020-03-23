@@ -31,3 +31,9 @@ export const LogoText = styled.span`
 export const CenterText = styled.div`
   text-align: center;
 `
+
+export const PagesTitle = styled.div`
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+`

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { Container } from './styles/Main';
+import { Container } from './styles/Main'
 
 const Slide2Wrapper = styled(Container)`
   padding: 2rem 1rem;
@@ -8,6 +8,7 @@ const Slide2Wrapper = styled(Container)`
   line-height: 1.5;
   letter-spacing: 1px;
   height: inherit;
+  color: ${({ theme }) => theme.colors.primary.pink};
 
   & p {
     margin-top: 0;
@@ -21,7 +22,7 @@ const Slide2Wrapper = styled(Container)`
       width: 100%;
     }
   }
-`;
+`
 
 function Slide2() {
   return (
@@ -50,7 +51,7 @@ function Slide2() {
         />
       </div>
     </Slide2Wrapper>
-  );
+  )
 }
 
-export default Slide2;
+export default Slide2

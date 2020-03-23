@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
+import { PagesTitle } from '../styles/Main'
 import { consignedRules, unconsignedRules } from '../../data/rules'
 import ListWrapper from '../styles/ListRules'
 
-const Wrapper = styled.div`
-  & h1 {
-    margin: 0;
-    text-align: center;
-  }
-`
+const Wrapper = styled.div``
 
 const RulesContent = styled.div``
 
@@ -29,7 +25,7 @@ const ImgWrapper = styled.div`
 function InaRules() {
   return (
     <Wrapper>
-      <h1>ATURAN PENGIRIMAN</h1>
+      <PagesTitle>ATURAN PENGIRIMAN</PagesTitle>
       <div>
         <h2>Titip Barang Tidak Langsung Di Kita</h2>
         <RulesContent>

@@ -1,19 +1,19 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
             sheet.collectStyles(<App {...props} />)
-        });
+        })
 
-      const initialProps = await Document.getInitialProps(ctx);
+      const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
         styles: (
@@ -22,9 +22,9 @@ class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         )
-      };
+      }
     } finally {
-      sheet.seal();
+      sheet.seal()
     }
   }
 
@@ -82,7 +82,10 @@ class MyDocument extends Document {
           <meta name='layoutmode' content='fitscreen/standard' />
 
           <meta name='imagemode' content='force' />
-          <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet"></link>
+          <link
+            href='https://fonts.googleapis.com/css?family=Dosis&display=swap'
+            rel='stylesheet'
+          ></link>
         </Head>
         <body>
           <Main />
@@ -90,11 +93,6 @@ class MyDocument extends Document {
 
           <style jsx global>
             {`
-              // @font-face {
-              //   font-family: 'Dosis';
-              //   src: url('/fonts/Dosis-VariableFont_wght.ttf');
-              // }
-
               html {
                 height: 100%;
               }
@@ -115,8 +113,8 @@ class MyDocument extends Document {
           </style>
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

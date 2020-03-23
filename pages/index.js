@@ -8,8 +8,7 @@ import Slide2 from '../components/Slide2'
 // import AddToHomeScreenContext from '../context/AddToHomescreen';
 
 const BackgroundFull = styled.div`
-  background-color: #add8e6;
-  background-image: linear-gradient(180deg, #add8e6 55%, #e295d3 100%);
+background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
   height: inherit;
 `
 
