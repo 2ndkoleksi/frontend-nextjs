@@ -28,6 +28,9 @@ app
     server.get('/rules', (req, res) => {
       return app.render(req, res, '/rules', {})
     })
+    server.get('/uploadfile', (req, res) => {
+      return app.render(req, res, '/uploadfile', {})
+    })
 
     server.all('*', (req, res) => handle(req, res))
 

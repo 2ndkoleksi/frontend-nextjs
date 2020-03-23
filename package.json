@@ -12,6 +12,7 @@
     "run-docker": "docker run --rm -it -p 3002:3000 2ndkoleksi"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "express": "^4.17.1",
     "lru-cache": "^5.1.1",
     "next": "9.2.2",

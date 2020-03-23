@@ -1,7 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const Global = createGlobalStyle`
-  * {
+  @font-face {
+    font-family: 'Dosis';
+    src: url('/fonts/Dosis-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *,
+  *::after,
+  *::before {
     box-sizing: border-box;
   }
 
@@ -14,5 +23,7 @@ export const Global = createGlobalStyle`
     width: 100%;
     overflow-x: hidden;
     user-select: none;
+    font-family: 'Dosis', sans-serif;
+    text-rendering: optimizeLegibility;
   }
 `

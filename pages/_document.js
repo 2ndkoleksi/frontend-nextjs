@@ -82,35 +82,10 @@ class MyDocument extends Document {
           <meta name='layoutmode' content='fitscreen/standard' />
 
           <meta name='imagemode' content='force' />
-          <link
-            href='https://fonts.googleapis.com/css?family=Dosis&display=swap'
-            rel='stylesheet'
-          ></link>
         </Head>
         <body>
           <Main />
           <NextScript />
-
-          <style jsx global>
-            {`
-              html {
-                height: 100%;
-              }
-
-              body {
-                font-family: 'Dosis', sans-serif;
-                margin: 0;
-                height: 100%;
-                text-rendering: optimizeLegibility;
-              }
-
-              *,
-              *::after,
-              *::before {
-                box-sizing: border-box;
-              }
-            `}
-          </style>
         </body>
       </Html>
     )

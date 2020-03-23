@@ -56,14 +56,6 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </AddToHomeScreenContext.Provider>
         </ThemeProvider>
-        <style jsx global>{`
-          @font-face {
-            font-family: 'Dosis';
-            src: url('/fonts/Dosis-VariableFont_wght.ttf');
-            font-style: normal;
-            font-display: swap;
-          }
-        `}</style>
       </>
     )
   }

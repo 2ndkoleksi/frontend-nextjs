@@ -1,12 +1,40 @@
-const withPlugins = require('next-compose-plugins');
-const withOffline = require('next-offline');
-const withImages = require('next-images');
-const withFonts = require('next-fonts');
-
+const withPlugins = require('next-compose-plugins')
+const withOffline = require('next-offline')
+const withImages = require('next-images')
+const withCss = require('@zeit/next-css')
+const withFonts = require('next-fonts')
 
 const nextConfig = {
   useFileSystemPublicRoutes: false
-};
+}
+
+const fontConfig = withFonts(
+  withCss({
+    webpack: (config, { isServer }) => {
+      if (isServer) {
+        const antStyles = /antd\/.*?\/style\/css.*?/
+        const origExternals = [...config.externals]
+        config.externals = [
+          (context, request, callback) => {
+            if (request.match(antStyles)) return callback()
+            if (typeof origExternals[0] === 'function') {
+              origExternals[0](context, request, callback)
+            } else {
+              callback()
+            }
+          },
+          ...(typeof origExternals[0] === 'function' ? [] : origExternals)
+        ]
+
+        config.module.rules.unshift({
+          test: antStyles,
+          use: 'null-loader'
+        })
+      }
+      return config
+    }
+  })
+)
 
 const offlineConfig = {
   target: 'serverless',
@@ -55,9 +83,9 @@ const offlineConfig = {
     // Will be available on both server and client
     API_URL: process.env.API_URL
   }
-};
+}
 
 module.exports = withPlugins(
-  [withImages, withFonts, [withOffline, offlineConfig]],
+  [withImages, fontConfig, [withOffline, offlineConfig]],
   nextConfig
-);
+)
