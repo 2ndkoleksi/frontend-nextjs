@@ -57,7 +57,7 @@ const Content = styled.div`
 
   & p {
     width: 280px;
-    font-size: 13px;
+    font-size: ${({ theme }) => theme.fontSize.small};
     line-height: 1.4;
     margin: 20px 0;
   }
@@ -76,7 +76,7 @@ const Button = styled.div`
     display: inline-block;
     overflow: hidden;
     position: relative;
-    font-size: 11px;
+    font-size: ${({ theme }) => theme.fontSize.small};
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid #aaa;
@@ -123,7 +123,7 @@ const Label = styled.span`
   background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
   padding: 5px 10px;
   border-radius: 50px;
-  font-size: 1em;
+  font-size: ${({ theme }) => theme.fontSize.small};
   text-transform: uppercase;
 `
 

@@ -16,7 +16,7 @@ const Span = styled.span`
 `
 
 const FontStyle = styled.div`
-  font-size: 50px;
+  font-size: ${({ theme }) => theme.fontSize.large};
 
   & a {
     border-bottom: 2px solid;
@@ -25,6 +25,14 @@ const FontStyle = styled.div`
     outline: 0;
     transition: all 0.3s;
     padding: 1rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 2s ease-in-out;
   }
 `
 

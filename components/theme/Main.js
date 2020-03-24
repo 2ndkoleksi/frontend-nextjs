@@ -11,5 +11,10 @@ export const theme = {
   mobile: '576px',
   hoverColors: {
     primary: '#343078'
+  },
+  fontSize: {
+    small: '1.3rem',
+    medium: '2rem',
+    large: '2.7rem'
   }
 }

@@ -8,7 +8,7 @@ const List = styled.div`
   letter-spacing: 2px;
   line-height: 30px;
   padding: 1rem 2rem;
-  font-size: 14.5px;
+  font-size: ${({ theme }) => theme.fontSize.small};
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.primary.pink};
   overflow: visible;

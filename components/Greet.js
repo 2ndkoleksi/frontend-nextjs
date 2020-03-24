@@ -1,15 +1,15 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
-import { useTransition, animated } from 'react-spring';
-import styled from 'styled-components';
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { useTransition, animated } from 'react-spring'
+import styled from 'styled-components'
 
-import Slide2 from './Slide2';
+import Slide2 from './Slide2'
 
 const AnimatedWrapper = styled.div`
   height: 250px;
   max-height: 250px;
   z-index: 0;
   user-select: none;
-`;
+`
 
 const AnimatedDiv = styled(animated.div)`
   overflow: hidden;
@@ -18,26 +18,26 @@ const AnimatedDiv = styled(animated.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3em;
+  font-size: ${({ theme }) => theme.fontSize.large};
   font-weight: 800;
   text-transform: uppercase;
   will-change: transform, opacity, height;
   white-space: nowrap;
   line-height: 80px;
-`;
+`
 
 const AnimatedChildDiv = styled(animated.div)`
   overflow: hidden;
   height: 80px;
-`;
+`
 
 const HomeSection = styled.div`
   padding-top: 4rem;
-`;
+`
 
 function Greet() {
-  const ref = useRef([]);
-  const [items, set] = useState([]);
+  const ref = useRef([])
+  const [items, set] = useState([])
   const transitions = useTransition(items, null, {
     from: {
       opacity: 0,
@@ -57,20 +57,20 @@ function Greet() {
       { opacity: 0, height: 0 }
     ],
     update: { color: '#FF4893' }
-  });
+  })
 
   const reset = useCallback(() => {
-    ref.current.map(clearTimeout);
-    ref.current = [];
-    set([]);
-    ref.current.push(setTimeout(() => set(['Sale', 'Branded', 'Stuff']), 2000));
-    ref.current.push(setTimeout(() => set(['Sale', 'Stuff']), 5000));
+    ref.current.map(clearTimeout)
+    ref.current = []
+    set([])
+    ref.current.push(setTimeout(() => set(['Sale', 'Branded', 'Stuff']), 2000))
+    ref.current.push(setTimeout(() => set(['Sale', 'Stuff']), 5000))
     ref.current.push(
       setTimeout(() => set(['Sale', 'Authentic', 'Stuff']), 8000)
-    );
-  }, []);
+    )
+  }, [])
 
-  useEffect(() => void reset(), []);
+  useEffect(() => void reset(), [])
 
   return (
     <HomeSection>
@@ -83,7 +83,7 @@ function Greet() {
       </AnimatedWrapper>
       <Slide2 />
     </HomeSection>
-  );
+  )
 }
 
-export default Greet;
+export default Greet
